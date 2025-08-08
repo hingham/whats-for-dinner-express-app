@@ -9,7 +9,6 @@ import datastoreRoutes from "./routes/datastoreRoutes"
 import datastoreGetRoutes from "./routes/datastoreGetRoutes"
 import db from "./config/firebase"
 const projectId = process.env.PROJECT_ID;
-console.log({ projectId });
 
 const app = express();
 app.use(cors({ origin: 'http://localhost:3000' }));
@@ -36,7 +35,6 @@ app.use('/datastore', datastoreRoutes);
 app.put('/user/:id/role', authorize(['admin', 'maintainer', 'subscriber', 'free-tier']), async (req, res) => {
     const userId = req.params.id;
     const newRole = req.body.role;
-    console.log({ newRole })
 
     try {
         await admin.auth().setCustomUserClaims(userId, { role: newRole });

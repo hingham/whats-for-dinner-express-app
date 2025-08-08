@@ -1,12 +1,12 @@
 {
   "name": "whats-for-dinner-express-app",
   "version": "1.0.0",
-  "main": "server.js",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon --watch src --ext ts --exec ts-node src/server.ts",
+    "start": "nodemon --watch src --ext ts --exec ts-node api/index.ts",
     "build": "tsc",
-    "dev": "nodemon --watch src --exec npm run build && node dist/server.js"
+    "dev": "nodemon --watch src --exec npm run build && node dist/index.js"
   },
   "keywords": [],
   "author": "",
