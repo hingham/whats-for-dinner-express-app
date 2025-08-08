@@ -7,10 +7,10 @@
         "skipLibCheck": true,
         "forceConsistentCasingInFileNames": true,
         "outDir": "./dist",
-        "rootDir": "api"
+        "rootDir": "./"
     },
     "include": [
-        "api/**/*"
+        "src/**/*", "api/**/*"
     ],
     "exclude": [
         "node_modules",
