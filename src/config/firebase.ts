@@ -3,9 +3,10 @@ dotenv.config();
 import admin from 'firebase-admin';
 
 const projectId = process.env.PROJECT_ID || 'whats-for-dinner-f80b4';
+const serviceAccount = JSON.parse(process.env.GOOGLE_APPLICATION_CREDENTIALS_JSON || "");
 
 admin.initializeApp({
-  credential: admin.credential.applicationDefault(),
+  credential: admin.credential.cert(serviceAccount),
   databaseURL: `https://${projectId}.firebaseio.com`,
   projectId,
 });
