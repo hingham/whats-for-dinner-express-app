@@ -7,7 +7,6 @@ const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
 const firebase_admin_1 = __importDefault(require("firebase-admin"));
 const projectId = process.env.PROJECT_ID || 'whats-for-dinner-f80b4';
-console.log({ projectId, creds: process.env.GOOGLE_APPLICATION_CREDENTIALS });
 firebase_admin_1.default.initializeApp({
     credential: firebase_admin_1.default.credential.applicationDefault(),
     databaseURL: `https://${projectId}.firebaseio.com`,

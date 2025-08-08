@@ -14,7 +14,6 @@ const collectionToIdPrefix = {
 // Example route to fetch all documents from a collection
 router.get('/:collectionName', async (req, res) => {
     const { collectionName } = req.params;
-    console.log({ collectionName });
     try {
         const documents = await (0, datastoreService_1.getAllDocuments)(collectionName);
         documents.forEach((doc) => {
