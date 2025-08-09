@@ -11,7 +11,10 @@ import db from "../src/config/firebase"
 const projectId = process.env.PROJECT_ID;
 
 const app = express();
-app.use(cors({ origin: 'http://localhost:3000' }));
+const corsOptions = {
+    origin: [ 'http://localhost:3000', 'https://whatsfordinner.us']
+}
+app.use(cors(corsOptions));
 app.use(bodyParser.json());
 
 /**
