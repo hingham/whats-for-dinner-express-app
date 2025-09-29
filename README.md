@@ -7,4 +7,7 @@ Start the server:
 Uploading docs: 
 - Check script files for scripts to help upload documents to the database
 - Run script file from root of the project for loading environment variables
-- 
+
+
+CORS:
+- cors middleware is used for local development, but CORS policy needs to be in the vercel config file for production

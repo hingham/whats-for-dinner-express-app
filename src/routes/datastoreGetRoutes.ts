@@ -1,15 +1,9 @@
 import express from 'express';
 import { getAllDocuments, getDocumentById, addDocument, updateDocument, deleteDocument } from '../services/datastoreService';
+import { CollectionName, collectionToIdPrefix } from '../utils/constants';
 
 const router = express.Router();
 
-type CollectionName = 'base-freezer-recipes' | 'freezer-recipes' | 'fresh-freezer-base-recipes';
-
-const collectionToIdPrefix: Record<CollectionName, string> = {
-    'base-freezer-recipes': 'frozenBase',
-    'freezer-recipes': 'frozenRecipes',
-    'fresh-freezer-base-recipes': 'freshRecipes',
-}
 
 // Example route to fetch all documents from a collection
 router.get('/:collectionName', async (req, res) => {
