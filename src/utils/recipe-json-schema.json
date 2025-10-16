@@ -1,0 +1,146 @@
+{
+  "title": "FreezerRecipe",
+  "type": "object",
+  "properties": {
+    "name": {
+      "type": "string",
+      "description": "Name of the recipe"
+    },
+    "ingredients": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Ingredient"
+      },
+      "description": "List of ingredients required for the recipe"
+    },
+    "directions": {
+      "type": "array",
+      "items": {
+        "$ref": "#/definitions/Directions"
+      },
+      "description": "Cooking directions organized in sets"
+    },
+    "nutritionNeeds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Meal categories or nutrition requirements"
+    },
+    "season": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Seasons when the dish is best (empty means year-round)"
+    },
+    "image": {
+      "type": "string",
+      "description": "Image URL or path"
+    },
+    "description": {
+      "type": "string",
+      "description": "Description of the recipe"
+    },
+    "freezer": {
+      "type": "boolean",
+      "const": true,
+      "description": "Indicates this is a freezer recipe"
+    },
+    "howToFreeze": {
+      "type": "string",
+      "description": "Instructions for freezing the recipe"
+    },
+    "howToThaw": {
+      "type": "string",
+      "description": "Instructions for thawing and reheating"
+    }
+  },
+  "required": [
+    "name",
+    "ingredients",
+    "directions",
+    "nutritionNeeds",
+    "season",
+    "image",
+    "freezer",
+    "howToFreeze",
+    "howToThaw",
+    "description"
+  ],
+  "additionalProperties": false,
+  "definitions": {
+    "Ingredient": {
+      "type": "object",
+      "properties": {
+        "item": {
+          "type": "string",
+          "description": "Name of the ingredient"
+        },
+        "amountUS": {
+          "type": ["number", "string"],
+          "description": "Amount in US measurements"
+        },
+        "measurementUS": {
+          "type": "string",
+          "description": "Measurement unit"
+        },
+        "amountEU": {
+          "type": "number",
+          "description": "Amount in EU measurements"
+        },
+        "measurementEU": {
+          "type": "string",
+          "description": "EU measurement unit"
+        },
+        "preparation": {
+          "type": "string",
+          "description": "Preparation instructions for the ingredient"
+        },
+        "optional": {
+          "type": "boolean",
+          "description": "Whether the ingredient is optional"
+        }
+      },
+      "required": ["item", "amountUS", "measurementUS", "amountEU", "measurementEU", "preparation", "optional"],
+      "additionalProperties": false
+    },
+    "Directions": {
+      "type": "object",
+      "properties": {
+        "directionSetTitle": {
+          "type": "string",
+          "description": "Title for this set of directions"
+        },
+        "steps": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/Step"
+          },
+          "description": "Individual cooking steps"
+        }
+      },
+      "required": ["directionSetTitle", "steps"],
+      "additionalProperties": false
+    },
+    "Step": {
+      "type": "object",
+      "properties": {
+        "preNote": {
+          "type": "string",
+          "description": "Note before the step"
+        },
+        "postNote": {
+          "type": "string",
+          "description": "Note after the step"
+        },
+        "step": {
+          "type": "string",
+          "description": "The cooking instruction"
+        }
+      },
+      "required": ["step", "preNote", "postNote"],
+      "additionalProperties": false
+    }
+  }
+}
