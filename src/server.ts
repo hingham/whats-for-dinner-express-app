@@ -6,6 +6,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import { authenticate, authorize } from "../src/middleware/authMiddleware"
 import datastoreRoutes from "../src/routes/datastoreRoutes"
+import openAiRoutes from "../src/routes/openAiRoutes"
 import datastoreGetRoutes from "../src/routes/datastoreGetRoutes"
 import db from "../src/config/firebase"
 const projectId = process.env.PROJECT_ID;
@@ -30,7 +31,7 @@ app.use('/datastore', datastoreGetRoutes)
 
 app.use(authenticate)
 app.use('/datastore', datastoreRoutes);
-
+app.use('/', openAiRoutes)
 /**
  * @description Update user role in the jwt claims for the user
  * User claims will need to be refreshed on the client to show the new claims
